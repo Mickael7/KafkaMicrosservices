@@ -2,6 +2,7 @@ package com.portal.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,26 +15,26 @@ import lombok.NoArgsConstructor;
 @JsonInclude
 public class CarPostDTO { //Data Transfer Object - DTO 
 
-    private String model;
+	  private String model;
 
-    private String brand;
+	    private String brand;
 
-    private String price;
+	    private String price;
 
-    private String description;
+	    private String description;
 
-    private String engineVersion;
+	    private String engineVersion;
 
-    private String city;
+	    private String city;
 
-    private String createdDate;
+	    private String createdDate;
 
-    private Long ownerId;
+	    private Long ownerId;
 
-    private String ownerName;
+	    private String ownerName;
 
-    private String ownerType;
+	    private String ownerType;
 
-    private String contact;
+	    private String contact;
 
 }

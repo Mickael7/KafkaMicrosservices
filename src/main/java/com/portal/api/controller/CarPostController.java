@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.portal.api.dto.CarPostDTO;
 import com.portal.api.message.KafkaProducerMessage;
@@ -29,13 +30,13 @@ public class CarPostController {
 	private KafkaProducerMessage kafkaProducerMessage;
 
 	@PostMapping("/post")
-	public ResponseEntity postCarForSale(@RequestBody CarPostDTO carPostDTO) {
+	public ResponseEntity postCarForSale (@RequestBody CarPostDTO carPostDTO) {
 		kafkaProducerMessage.sendMessage(carPostDTO);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/posts")
-	public ResponseEntity<List<CarPostDTO>> getCarSales() {
+	public ResponseEntity<List<CarPostDTO>> getCarSales() { 
 		return ResponseEntity.status(HttpStatus.FOUND).body(carPostStoreService.getCarForSales());
 	}
 
